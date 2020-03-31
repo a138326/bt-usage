@@ -1,0 +1,174 @@
+/* ==========================================================================
+   Base styles
+   ========================================================================== */
+
+ html, body {
+		  background-color: #ccc;
+		  height: 100%;
+		  font-family: sans-serif;
+		  color: #fff;
+		  
+		  }
+	  .wrapper {
+		  background-color: #000;
+		  max-width: 343px;
+		  margin: 0 auto;
+		  height: 100%;
+		  padding: 16px;
+	  }
+	  h2 {
+		  font-size: 18px;
+		  font-weight: 300;
+		  margin-bottom: 16px;
+	  }
+/* ==========================================================================
+   Time toggle
+   ========================================================================== */
+.timeToggle {
+	display: flex;
+	justify-content: space-between;
+	background-color: rgba(255,255,255,0.16);
+	border-radius: 8px;
+	margin-bottom: 16px;
+}
+.timeToggle p {
+	border-radius: 8px;
+	padding: 8px;
+	text-align: center;
+	width: 33%;
+	color: rgba(255,255,255,1);
+	margin: 0;
+	font-size: 14px;
+	line-height: 21px;
+}
+.timeToggle p:hover {
+	cursor: pointer;
+	opacity: 0.5;
+}
+.timeToggle p.active {
+	background-color: rgba(255,255,255,0.40);	
+}
+.currentTimeDate {
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: 400;
+	border-bottom: 1px solid #333;
+	border-top: 1px solid #333;
+	padding: 8px 0;
+	margin-bottom: 16px;
+}
+
+/* ==========================================================================
+  Pie chart
+   ========================================================================== */
+.pie-chart {
+	padding-bottom: 32px;
+	border-bottom: 1px solid #333;
+	display: flex;
+}
+.pie-chart-wrapper {
+	width: 50%;
+}
+.pie-chart-legend {
+	width: 50%;
+}
+#chart-area {
+	
+}
+/* ==========================================================================
+	Tool tips
+   ========================================================================== */
+	  #chartjs-tooltip {
+		  font-size: 12px;
+		  width: 100%;
+		  height: 40px;
+		  text-align: center;
+	  }
+	  #chartjs-tooltip-key-placeholder {
+		   width: 100%;
+		   height: 40px;  
+	  }
+	  .chartjs-tooltip-key {
+		  margin-left: 16px;
+	  }
+	  
+.x-axis-day {
+	display: flex;
+	justify-content: space-between;
+	padding-left: 22px;
+	height: 12px
+}
+.x-axis-day p {
+	font-size: 12px;
+	line-height: 12px;
+	color: #666;
+	text-align: left;
+	margin: 0;
+	
+}
+
+/* ==========================================================================
+	Legend
+   ========================================================================== */
+   
+[class="0-legend"] {
+  cursor: pointer;
+  list-style: none;
+  padding-left: 0;
+}
+[class="0-legend"] li {
+  display: inline-block;
+  padding: 0 5px;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+}
+[class="0-legend"] li.hidden {
+  text-decoration: line-through;
+}
+[class="0-legend"] li span {
+  border-radius: 5px;
+  display: inline-block;
+  height: 10px;
+  margin-right: 10px;
+  width: 10px;
+} 
+[class="0-legend"] .notshown {
+	opacity: 0.5;
+}
+[class="0-legend"] li:hover {
+	opacity: 0.5;
+}
+
+[class="0-legend"] li span {
+	width: 48px;
+	height: 48px;
+	border-radius: 48px;
+	text-align: center;
+	line-height: 48px;
+}
+
+
+[class="0-legend"] li:nth-of-type(1) span {
+	background-color: rgba(255, 200, 0, 1)!important;
+	color: black;
+}
+[class="0-legend"] li:nth-of-type(2) span {
+	background-color: rgba(68, 255, 145, 1)!important;
+	color: black;
+}
+[class="0-legend"] li:nth-of-type(3) span {
+	background-color: rgba(255, 255, 255, 1)!important;
+	color: black;
+}
+
+
+[class="0-legend"] li:nth-of-type(1) span:before {
+	content: 'S';
+}
+[class="0-legend"] li:nth-of-type(2) span:before {
+	content: 'B';
+}
+[class="0-legend"] li:nth-of-type(3) span:before {
+	content: 'G';
+}
