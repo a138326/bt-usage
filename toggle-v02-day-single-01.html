@@ -1,0 +1,327 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Usage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/chart-usage.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		
+		<p>&lt; Usage</p>
+		<h1>Performance</h1>
+		<div id="myChartLegend"></div>
+		<div class="timeToggle"><p class="active">Daily</p><p class="">Monthly</p><p class="">Yearly</p></div>
+		<h3 class="currentTimeDate">Monday, 02 Jan 2022</h1>
+		<h2>So far, today you've used</h2>
+		
+		<div class="pie-chart">
+			<canvas id="chart-area"></canvas>
+		</div>
+			
+		<h2>Energy usage</h2>
+		<div class="line-chart">
+			<div id="chartjs-tooltip-key-placeholder">&nbsp;</div>
+		<canvas id="myChart"></canvas>
+		<div class="x-axis-day">
+			<p>1am</p><p>4am</p><p>8am</p><p>12pm</p><p>4pm</p><p>8pm</p><p>12pm</p>
+		</div>
+		
+		</div>
+
+	</div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script>
+	  
+
+Chart.defaults.LineWithLine = Chart.defaults.line;
+
+Chart.controllers.LineWithLine = Chart.controllers.line.extend({
+   draw: function(ease) {
+      Chart.controllers.line.prototype.draw.call(this, ease);
+
+      if (this.chart.tooltip._active && this.chart.tooltip._active.length) {
+         var activePoint = this.chart.tooltip._active[0],
+             ctx = this.chart.ctx,
+             x = activePoint.tooltipPosition().x,
+             topY = this.chart.legend.bottom,
+             bottomY = this.chart.chartArea.bottom;
+
+         // draw line
+         ctx.save();
+         ctx.beginPath();
+         ctx.moveTo(x, topY);
+         ctx.lineTo(x, bottomY);
+         ctx.lineWidth = 2;
+         ctx.strokeStyle = '#fff';
+         ctx.stroke();
+         ctx.restore();
+      }
+   }
+});
+
+
+
+var customTooltips = function(tooltip) {
+	
+	// Tooltip Element
+	var tooltipEl = document.getElementById('chartjs-tooltip');
+			
+
+	if (!tooltipEl) {
+		tooltipEl = document.createElement('div');
+		tooltipEl.id = 'chartjs-tooltip';
+		tooltipEl.innerHTML = '<div></div>';
+		this._chart.canvas.parentNode.prepend(tooltipEl);
+		$("#chartjs-tooltip-key-placeholder").hide();
+	}
+
+	// Hide if no tooltip
+	if (tooltip.opacity === 0) {
+		tooltipEl.style.opacity = 0;
+		return;
+	}
+
+	function getBody(bodyItem) {
+		return bodyItem.lines;
+	}
+
+	// Set Text
+	if (tooltip.body) {
+		var titleLines = tooltip.title || [];
+		var bodyLines = tooltip.body.map(getBody);
+		var innerHtml = '<div>';
+		innerHtml += '</div>';
+
+		bodyLines.forEach(function(body, i) {
+			var colors = tooltip.labelColors[i];
+			var dataSet = i;
+			if (dataSet != 0 ) {
+			var style = 'color:' + colors.backgroundColor;
+			var span = '<span class="chartjs-tooltip-key ' + dataSet + '" style="' + style + '">' + body + '</span>';
+			innerHtml += span + titleLines;
+			}
+		});
+		
+		var tableRoot = tooltipEl.querySelector('div');
+		tableRoot.innerHTML = innerHtml;
+}
+			
+
+	tooltipEl.style.opacity = 1;
+};
+
+
+	  
+  var ctx = document.getElementById('myChart').getContext('2d');
+  
+  
+var gradientStroke = ctx.createLinearGradient(0,0,330,0);
+gradientStroke.addColorStop(0.00, '#FFFFFF');
+gradientStroke.addColorStop(0.08, '#FFFFFF');
+gradientStroke.addColorStop(0.13, '#FFFFFF');
+gradientStroke.addColorStop(0.17, '#A1E749');
+gradientStroke.addColorStop(0.21, '#A1E749');
+gradientStroke.addColorStop(0.25, '#A1E749');
+gradientStroke.addColorStop(0.29, '#FFE77F');
+gradientStroke.addColorStop(0.33, '#FFE77F');
+gradientStroke.addColorStop(0.38, '#FFCF00');
+gradientStroke.addColorStop(0.42, '#FFCF00');
+gradientStroke.addColorStop(0.46, '#FFCF00');
+gradientStroke.addColorStop(0.50, '#FFCF00');
+gradientStroke.addColorStop(0.54, '#FFCF00');
+gradientStroke.addColorStop(0.58, '#FFCF00');
+gradientStroke.addColorStop(0.63, '#FFCF00');
+gradientStroke.addColorStop(0.67, '#A1E749');
+gradientStroke.addColorStop(0.71, '#FFCF00');
+gradientStroke.addColorStop(0.75, '#A1E749');
+gradientStroke.addColorStop(0.79, '#A1E749');
+gradientStroke.addColorStop(0.83, '#A1E749');
+gradientStroke.addColorStop(0.88, '#44FF92');
+gradientStroke.addColorStop(0.92, '#44FF92');
+gradientStroke.addColorStop(0.96, '#44FF92');
+gradientStroke.addColorStop(1.00, '#44FF92');
+
+var gradientFill = ctx.createLinearGradient(0, 0, 360, 0);
+gradientFill.addColorStop(0.00, 'rgba(255, 255, 255, 1)');
+gradientFill.addColorStop(0.08, 'rgba(255, 255, 255, 1)');
+gradientFill.addColorStop(0.13, 'rgba(255, 255, 255, 1)');
+gradientFill.addColorStop(0.17, 'rgba(161, 231, 73, 1)');
+gradientFill.addColorStop(0.21, 'rgba(161, 231, 73, 1)');
+gradientFill.addColorStop(0.5, 'rgba(161, 231, 73, 1)');
+gradientFill.addColorStop(0.29, 'rgba(255, 231, 127, 1)');
+gradientFill.addColorStop(0.33, 'rgba(255, 231, 127, 1)');
+gradientFill.addColorStop(0.38, 'rgba(255, 207, 0, 1)');
+gradientFill.addColorStop(0.42, 'rgba(255, 207, 0, 1)');
+gradientFill.addColorStop(0.46, 'rgba(255, 207, 0, 1)');
+gradientFill.addColorStop(0.50, 'rgba(255, 207, 0, 1)');
+gradientFill.addColorStop(0.54, 'rgba(255, 207, 0, 1)');
+gradientFill.addColorStop(0.58, 'rgba(255, 207, 0, 1)');
+gradientFill.addColorStop(0.63, 'rgba(255, 207, 0, 1)');
+gradientFill.addColorStop(0.67, 'rgba(161, 231, 73, 1)');
+gradientFill.addColorStop(0.71, 'rgba(255, 207, 0, 1)');
+gradientFill.addColorStop(0.75, 'rgba(161, 231, 73, 1)');
+gradientFill.addColorStop(0.79, 'rgba(161, 231, 73, 1)');
+gradientFill.addColorStop(0.83, 'rgba(161, 231, 73, 1)');
+gradientFill.addColorStop(0.88, 'rgba(68, 255, 146, 1)');
+gradientFill.addColorStop(0.92, 'rgba(68, 255, 146, 1)');
+gradientFill.addColorStop(0.96, 'rgba(68, 255, 146, 1)');
+gradientFill.addColorStop(1.00, 'rgba(68, 255, 146, 1)');
+  
+  var chart = new Chart(ctx, {
+  
+  
+  // The type of chart we want to create
+  type: 'LineWithLine',
+    
+
+    // The data for our dataset
+    data: {
+        labels: ['','','','','','','','','','','','','','','','','','','','','','','',''],
+        datasets: [{
+            label: 'Total',
+            borderColor: gradientStroke,
+			borderWidth: 4,
+            backgroundColor: gradientFill,
+			fill: false,
+            data: ['1.35','0','0','0','1.89','2.37','2.89','2.96','2.39','1.36','2.84','2.44','1.98','2.33','1.82','2.31','2.69','2.87','2.45','2.22','2.09','1.89','0','0']
+        }, {
+        label: 'From Solar',
+            fill: false,
+            borderColor: 'rgba(255, 200, 0, 0)',
+            backgroundColor: 'rgba(255, 200, 0, 1)',
+            data: ['0', '0', '0', '0', '0.13', '0.21', '0.49', '2.76', '2.39', '1.36', '2.84', '2.44', '1.98', '2.33', '1.82', '1.84', '2.69', '2.80', '0.89', '0.12', '0', '0', '0', '0']
+        }, {
+        	label: 'From Battery',
+        	fill: false,
+            borderColor: 'rgba(68, 255, 145, 0)',
+            backgroundColor: 'rgba(68, 255, 145, 1)',
+            data: ['0', '0', '0', '0', '1.76', '2.16', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0.47', '0', '0.07', '1.56', '2.10', '2.09', '1.89', '0', '0']
+        }, {
+        	label: 'From Grid',
+        	fill: false,
+            borderColor: 'rgba(255, 255, 255, 0)',
+            backgroundColor: 'rgba(255, 255, 255, 1)',
+            data: ['1.35','0','0','0','0','0','2.4','0.2','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0']
+        },
+        ]
+    },
+
+    // Configuration options go here
+options: {
+	legend: {
+		display: false
+		},
+	scales: {
+		xAxes: [{
+			ticks: {
+				min: 1, 
+				display: false //this will remove only the label
+				}
+			}],
+		yAxes: [{
+			ticks: {
+				min: 0, 
+				stepSize: 1,
+				display: true //this will remove only the label
+				},
+			gridLines: {
+				display: true ,
+				color: "#666",
+				drawBorder: false
+			}
+			}]
+        },
+	elements: {
+		point: {
+			radius: 0,
+			hitRadius: 10, 
+			hoverRadius: 0,
+             }
+		},
+	tooltips: {
+		filter: function (tooltipItem, data) {
+			var label = data.labels[tooltipItem.index];
+			if (label == 'Total') {
+				return false;
+				} else {
+				return true;
+			}
+       },
+	   position: 'average',
+	   mode: 'index',
+	   intersect: false,
+	   custom: customTooltips,
+	   enabled: false,
+		},
+		hover: {
+			mode: 'nearest',
+			intersect: false
+		},
+	}
+});
+
+
+var config = {
+	type: 'doughnut',
+	data: {
+		datasets: [{
+			data: [63,28,9],
+			backgroundColor: ['rgba(255, 200, 0, 1)', 'rgba(68, 255, 145, 1)', 'rgba(255, 255, 255, 1)'],
+			borderColor: ['rgba(255, 200, 0, 1)', 'rgba(68, 255, 145, 1)', 'rgba(255, 255, 255, 1)'],
+			label: 'Home Usage'
+				}],
+				labels: [
+					'From Solar',
+					'From Battery',
+					'From Grid'
+				]
+			},
+			options: {
+				responsive: true,
+				cutoutPercentage: 80,
+				legend: {
+					display: true,
+					position: 'right',
+					
+				},
+				tooltips: {
+					enabled: false,
+				},
+				title: {
+					display: false,
+				},
+				animation: {
+					animateScale: true,
+					animateRotate: true
+				}
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('chart-area').getContext('2d');
+			window.myDoughnut = new Chart(ctx, config);
+		};
+
+	  </script>
+  
+  <script src="js/vendor/modernizr-3.8.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+  <script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>
