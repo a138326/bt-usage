@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>icon-home-inactive</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M2,10.4142136 L2,11 C1,11 0.683417511,11.0976311 0.292893219,10.7071068 C-0.0976310729,10.3165825 -0.0976310729,9.68341751 0.292893219,9.29289322 L9.29289322,0.292893219 C9.68341751,-0.0976310729 10.3165825,-0.0976310729 10.7071068,0.292893219 L19.7071068,9.29289322 C20.0976311,9.68341751 20.0976311,10.3165825 19.7071068,10.7071068 C19.4467573,10.9674563 18.8777217,11.0650874 18,11 L18,19 L12,19 L12,14 L8,14 L8,19 L2,19 L2,10.4142136 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-home-inactive">
+            <circle id="Oval-4-Copy" stroke="#FFFFFF" cx="18" cy="18" r="17.5"></circle>
+            <g id="Glyph-/-Fuel-/-Electricity-/-White" transform="translate(8.000000, 7.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Combined-Shape" fill="#FFFFFF" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

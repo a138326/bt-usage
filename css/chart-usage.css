@@ -1,3 +1,10 @@
+:root {
+  --color-home: #04F1F8;
+  --color-solar: #FFCD00;
+  --color-grid: #fff;
+  --color-battery: #32D74B;
+}
+
 /* ==========================================================================
    Base styles
    ========================================================================== */
@@ -14,13 +21,24 @@
 		  max-width: 343px;
 		  margin: 0 auto;
 		  padding: 16px;
-		  padding-bottom: 500px;
+		  padding-bottom: 800px;
+		  height: 5000px;
 	  }
 	  h2 {
 		  font-size: 18px;
 		  font-weight: 300;
 		  margin-bottom: 16px;
 	  }
+	h3 {
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: 400;
+	border-bottom: 1px solid #333;
+	border-top: 1px solid #333;
+	padding: 8px 0;
+	margin-bottom: 16px;
+}
+
 /* ==========================================================================
    Time toggle
    ========================================================================== */
@@ -48,33 +66,137 @@
 .timeToggle p.active {
 	background-color: rgba(255,255,255,0.40);	
 }
-.currentTimeDate {
-	font-size: 12px;
-	text-transform: uppercase;
-	font-weight: 400;
-	border-bottom: 1px solid #333;
-	border-top: 1px solid #333;
-	padding: 8px 0;
-	margin-bottom: 16px;
-}
 
 /* ==========================================================================
   Pie chart
    ========================================================================== */
-.pie-chart {
-	padding-bottom: 32px;
-	border-bottom: 1px solid #333;
+
+
+
+
+.piechart-wrapper {
 	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: -50px;
 }
-.pie-chart-wrapper {
-	width: 50%;
+.piechart-wrapper h3 {
+	width: 100%;
 }
-.pie-chart-legend {
-	width: 50%;
+.piechart-wrapper div{
+	width: 50%:
 }
-#chart-area {
-	
+.piechart-wrapper .values {
+	margin-left: 32px;
 }
+.piechart-wrapper .values  .values-line {
+	margin-bottom: 12px;
+	display: flex;
+	align-items:center;
+}
+.piechart-center .icon,
+.values-line .icon {
+	height: 24px;
+	width: 24px;
+	background-size: cover;
+	margin-right: 18px;
+}
+.piechart-wrapper .values .per-wrapper {
+	font-size: 17px;
+}
+
+.piechart-wrapper .values .val-wrapper {
+	font-size: 12px;
+}
+.piechart-wrapper .values .sum-label {
+	font-size: 13px;
+	display: block;
+}
+
+
+h3.solar,
+.piechart-wrapper .values .solar .sum-label {
+	color: var(--color-solar);
+}
+h3.battery,
+.piechart-wrapper .values .battery .sum-label {
+	color: var(--color-battery);
+}
+h3.grid,
+.piechart-wrapper .values .grid .sum-label {
+	color: var(--color-grid);
+}
+h3.home,
+.piechart-wrapper .values .home .sum-label {
+	color: var(--color-home);
+}
+.piechart-center.solar .icon,
+.values-line.solar .icon {
+	background-image: url('../img/icon-solar.svg');
+}
+.piechart-center.grid .icon,
+.values-line.grid .icon {
+	background-image: url('../img/icon-grid.svg');
+}
+.piechart-center.battery .icon,
+.values-line.battery .icon {
+	background-image: url('../img/icon-battery.svg');
+}
+.piechart-center.home .icon,
+.values-line.home .icon {
+	background-image: url('../img/icon-home.svg');
+}
+
+#homePieChart .chart-item-0 {
+	stroke: var(--color-solar);
+}
+#homePieChart .chart-item-1 {
+	stroke: var(--color-battery);
+}
+#homePieChart .chart-item-2 {
+	stroke: var(--color-grid);
+}
+
+#solarPieChart .chart-item-0 {
+	stroke: var(--color-home);
+}
+#solarPieChart .chart-item-1 {
+	stroke: var(--color-battery);
+}
+#solarPieChart .chart-item-2 {
+	stroke: var(--color-grid);
+}
+
+#batteryPieChart .chart-item-0 {
+	stroke: var(--color-home);
+}
+#batteryPieChart .chart-item-1 {
+	stroke: var(--color-grid);
+}
+#gridPieChart .chart-item-0 {
+	stroke: var(--color-home);
+}
+#gridPieChart .chart-item-1 {
+	stroke: var(--color-battery);
+}
+
+
+.piechart-center {
+	width: 150px;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	position: relative;
+	top: -105px;
+}
+.piechart-center .val {
+	width: 100%;
+	font-size: 12px;
+}
+.piechart-center .icon {
+	margin: 0 0 8px 0;
+}
+
 /* ==========================================================================
 	Tool tips
    ========================================================================== */
@@ -106,7 +228,53 @@
 	margin: 0;
 	
 }
+.bar-chart .x-axis-day p {
+	text-align: center;
+	width: 45px;
+}
 
+/* ==========================================================================
+	Chart toggles
+   ========================================================================== */
+.asset-toggle-wrapper {
+	margin-bottom: 16px;
+}
+.asset-toggle {
+	background: none;
+	border: none;
+	background-size: cover;
+	height: 36px;
+	width: 36px;
+	margin-right: 8px;
+}
+.asset-toggle:hover {
+	opacity: 0.5;
+	cursor: pointer;
+}
+#removeHome {
+	background-image: url('../img/icon-home-active.svg');
+}
+#addHome {
+	background-image: url('../img/icon-home-inactive.svg');
+}
+#removeSolar {
+	background-image: url('../img/icon-solar-active.svg');
+}
+#addSolar {
+	background-image: url('../img/icon-solar-inactive.svg');
+}
+#removeBattery {
+	background-image: url('../img/icon-battery-active.svg');
+}
+#addBattery {
+	background-image: url('../img/icon-battery-inactive.svg');
+}
+#removeGrid {
+	background-image: url('../img/icon-grid-active.svg');
+}
+#addGrid {
+	background-image: url('../img/icon-grid-inactive.svg');
+}
 /* ==========================================================================
 	Legend
    ========================================================================== */
