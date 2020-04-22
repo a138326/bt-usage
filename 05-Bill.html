@@ -1,0 +1,706 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Usage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/chart-usage.css">
+</head>
+
+
+<body>
+	
+<! Wrapper to simulate mobile device >
+	<div class="wrapper">
+		
+		
+		<! header >
+		<p>&lt; Usage</p>
+		<h1>Performance</h1>
+
+
+		<! Asset toggles >
+		<div class="asset-toggle-wrapper">
+			<button id="removeHome" class="asset-toggle">&nbsp;</button>
+			<button id="addHome" class="asset-toggle">&nbsp;</button>
+		
+			<button id="removeSolar" class="asset-toggle">&nbsp;</button>
+			<button id="addSolar" class="asset-toggle">&nbsp;</button>
+		
+			<button id="removeBattery" class="asset-toggle">&nbsp;</button>
+			<button id="addBattery" class="asset-toggle">&nbsp;</button>
+		
+			<button id="removeGrid" class="asset-toggle">&nbsp;</button>
+			<button id="addGrid" class="asset-toggle">&nbsp;</button>
+		</div>
+		
+		
+
+		<! Time toggles >
+		<div class="timeToggle">
+			<a class="" href="01-Day.html">D</a>
+			<a class="" href="02-Week.html">W</a>
+			<a class="active" href="03-Month.html">M</a>
+			<a class="" href="04-Year.html">Y</a>
+			<a class="" href="05-Bill.html">Bill</a>
+		</div>
+		<h3 class="currentTimeDate">14 March – 15 April 2020</h1>
+		
+		
+		
+		<! Line graph >	
+		<div class="bar-chart">
+			<div id="chartjs-tooltip-key-placeholder">&nbsp;</div>
+		<canvas id="myChart"></canvas>
+		<div class="x-axis-day x-axis-month">
+			<p>14</p><p>30</p><p>15</p>
+		</div>
+		</div>
+		
+		
+		<! Additional info >
+		
+		<h2>Breakdown for billing period</h2>
+		
+		<div id="additional-info-wrapper">
+		<! Additional info – home >
+		<div class="piechart-wrapper" id="homePie">
+		<h3 class="">Home usage</h3>	
+			<div id="homePieChart"></div>
+		
+			<div class="values">
+				
+				<div class="values-line solar">
+					<div class="icon">&nbsp;</div>
+					<div>
+						<span class="per-wrapper"><span class="per"></span>&percnt; </span>
+						<span class="val-wrapper">&lpar;<span class="val">
+						</span>kWh&rpar;</span><span class="sum-label">From Solar</span>
+					</div>
+				</div>
+				
+				<div class="values-line battery">
+					<div class="icon">&nbsp;</div>
+					<div>
+						<span class="per-wrapper"><span class="per"></span>&percnt; </span>
+						<span class="val-wrapper">&lpar;<span class="val">
+						</span>kWh&rpar;</span><span class="sum-label">From Battery</span>
+					</div>
+				</div>
+				
+				<div class="values-line grid">
+					<div class="icon">&nbsp;</div>
+					<div>
+						<span class="per-wrapper"><span class="per"></span>&percnt; </span>
+						<span class="val-wrapper">&lpar;<span class="val">
+						</span>kWh&rpar;</span><span class="sum-label">From Grid</span>
+					</div>
+				</div>
+
+
+				</div>
+				
+				<div class="piechart-center home">
+					<div class="icon">&nbsp;</div>
+					<div class="val">22.5kWh</div>
+				</div>
+				
+			</div>
+			
+			
+			<! Additional info – solar >
+		<div class="piechart-wrapper" id="solarPie">
+		<h3 class="">Solar production</h3>	
+			<div id="solarPieChart"></div>
+		
+			<div class="values">
+				
+				<div class="values-line home">
+					<div class="icon">&nbsp;</div>
+					<div>
+						<span class="per-wrapper"><span class="per"></span>&percnt; </span>
+						<span class="val-wrapper">&lpar;<span class="val">
+						</span>kWh&rpar;</span><span class="sum-label">To Home</span>
+					</div>
+				</div>
+				
+				<div class="values-line battery">
+					<div class="icon">&nbsp;</div>
+					<div>
+						<span class="per-wrapper"><span class="per"></span>&percnt; </span>
+						<span class="val-wrapper">&lpar;<span class="val">
+						</span>kWh&rpar;</span><span class="sum-label">To Battery</span>
+					</div>
+				</div>
+				
+				<div class="values-line grid">
+					<div class="icon">&nbsp;</div>
+					<div>
+						<span class="per-wrapper"><span class="per"></span>&percnt; </span>
+						<span class="val-wrapper">&lpar;<span class="val">
+						</span>kWh&rpar;</span><span class="sum-label">To Grid</span>
+					</div>
+				</div>
+
+
+				</div>
+				
+				<div class="piechart-center solar">
+					<div class="icon">&nbsp;</div>
+					<div class="val">22.5kWh</div>
+				</div>
+				
+			</div>
+			
+			
+			<! Additional info – battery >
+		<div class="piechart-wrapper" id="batteryPie">
+	<h3 class="">Battery discharge</h3>		
+			<div id="batteryPieChart"></div>
+		
+			<div class="values">
+				
+				<div class="values-line home">
+					<div class="icon">&nbsp;</div>
+					<div>
+						<span class="per-wrapper"><span class="per"></span>&percnt; </span>
+						<span class="val-wrapper">&lpar;<span class="val">
+						</span>kWh&rpar;</span><span class="sum-label">To Home</span>
+					</div>
+				</div>
+				
+				
+				<div class="values-line grid">
+					<div class="icon">&nbsp;</div>
+					<div>
+						<span class="per-wrapper"><span class="per"></span>&percnt; </span>
+						<span class="val-wrapper">&lpar;<span class="val">
+						</span>kWh&rpar;</span><span class="sum-label">To Grid</span>
+					</div>
+				</div>
+
+
+				</div>
+				
+				<div class="piechart-center battery">
+					<div class="icon">&nbsp;</div>
+					<div class="val">22.5kWh</div>
+				</div>
+				
+			</div>
+			
+			
+			
+			<! Additional info – grid >
+		<div class="piechart-wrapper" id="gridPie">
+		<h3 class="">Grid import</h3>	
+			<div id="gridPieChart"></div>
+		
+			<div class="values">
+				
+				<div class="values-line home">
+					<div class="icon">&nbsp;</div>
+					<div>
+						<span class="per-wrapper"><span class="per"></span>&percnt; </span>
+						<span class="val-wrapper">&lpar;<span class="val">
+						</span>kWh&rpar;</span><span class="sum-label">To Home</span>
+					</div>
+				</div>
+				
+				
+				<div class="values-line battery">
+					<div class="icon">&nbsp;</div>
+					<div>
+						<span class="per-wrapper"><span class="per"></span>&percnt; </span>
+						<span class="val-wrapper">&lpar;<span class="val">
+						</span>kWh&rpar;</span><span class="sum-label">To Battery</span>
+					</div>
+				</div>
+
+
+				</div>
+				
+				<div class="piechart-center grid">
+					<div class="icon">&nbsp;</div>
+					<div class="val">22.5kWh</div>
+				</div>
+				
+			</div>
+			
+			
+			
+		</div>
+			
+			
+
+			
+
+	
+
+
+	</div>
+<div class="phone">&nbsp;</div>		
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="js/Chart.roundedBarCharts.js"></script>
+<script type="text/javascript" src="js/donut-chart.js"></script>
+
+<script>
+
+var sumSolarUsed = 243;						var sumSolarUsedP = 0.27;
+var sumBatteryUsed = 349;					var sumBatteryUsedP = 0.42;
+var sumGridUsed = 262;						var sumGridUsedP = 0.31;
+var sumHomeTotal = '855kWh';	
+
+var sumSolar2home = 243;					var sumSolar2homeP = 0.39;
+var sumSolar2Battery = 322;				var sumSolar2BatteryP = 0.51;
+var sumSolar2Grid = 64;					var sumSolar2GridP = 0.10;
+var sumSolarTotal = '168kWh';
+
+var sumBattery2Home = 349;				var sumBattery2HomeP = 1;
+var sumBattery2Grid = 0.00;					var sumBattery2GridP = 0.00;
+var sumBatteryTotal = '349kWh';
+
+var sumGrid2Home = 262;					var sumGrid2HomeP = 1.00;
+var sumGrid2Battery = 0.00;					var sumGrid2BatteryP = 0.00;
+var sumGridTotal = '262kWh';
+
+// Show / hide toggles
+
+$( document ).ready(function() {
+    $("#addHome").hide();
+    $("#removeSolar").hide();
+    $("#removeBattery").hide();
+    $("#removeGrid").hide();
+	$("#solarPie").hide();
+	$("#gridPie").hide();
+	$("#batteryPie").hide();
+    
+    
+    
+    $("#homePie .values .solar .per").html(sumSolarUsedP * 100);
+    $("#homePie .values .solar .val").html(sumSolarUsed );
+    $("#homePie .values .battery .per").html(sumBatteryUsedP * 100);
+    $("#homePie .values .battery .val").html(sumBatteryUsed );
+    $("#homePie .values .grid .per").html(sumGridUsedP * 100);
+    $("#homePie .values .grid .val").html(sumGridUsed );
+    $("#homePie .piechart-center .val").html(sumHomeTotal);
+    
+    
+    $("#solarPie .values .home .per").html(sumSolar2homeP * 100);
+    $("#solarPie .values .home .val").html(sumSolar2home);
+    $("#solarPie .values .battery .per").html(sumSolar2BatteryP * 100);
+    $("#solarPie .values .battery .val").html(sumSolar2Battery);
+    $("#solarPie .values .grid .per").html(sumSolar2GridP * 100);
+    $("#solarPie .values .grid .val").html(sumSolar2Grid);
+    $("#solarPie .piechart-center .val").html(sumSolarTotal);
+    
+    
+    $("#batteryPie .values .home .per").html(sumBattery2HomeP * 100);
+    $("#batteryPie .values .home .val").html(sumBattery2Home);
+    $("#batteryPie .values .grid .per").html(sumBattery2GridP * 100);
+    $("#batteryPie .values .grid .val").html(sumBattery2Grid);
+    $("#batteryPie .piechart-center .val").html(sumBatteryTotal);
+    
+    $("#gridPie .values .home .per").html(sumGrid2HomeP * 100);
+    $("#gridPie .values .home .val").html(sumGrid2Home);
+    $("#gridPie .values .battery .per").html(sumGrid2BatteryP * 100);
+    $("#gridPie .values .battery .val").html(sumGrid2Battery);
+    $("#gridPie .piechart-center .val").html(sumGridTotal);
+    
+
+    
+});
+
+
+// Homepiechart
+var chart_div = document.getElementById("homePieChart");
+var homePieChart = new DonutChart(chart_div, {
+        r: 75,
+        stroke: 16,
+        scale: 100,
+        items: [
+            { label: "A", value: sumSolarUsedP  },
+            { label: "B", value: sumBatteryUsedP },
+            { label: "C", value: sumGridUsedP   },
+        ]
+    });
+    
+// Solarchart
+var chart_div = document.getElementById("solarPieChart");
+var solarPieChart = new DonutChart(chart_div, {
+        r: 75,
+        stroke: 16,
+        scale: 100,
+        items: [
+            { label: "A", value: sumSolar2homeP  },
+            { label: "B", value: sumSolar2BatteryP },
+            { label: "C", value: sumSolar2GridP   },
+        ]
+    });
+    
+ // batteryPieChart   
+var chart_div = document.getElementById("batteryPieChart");
+var batteryPieChart = new DonutChart(chart_div, {
+        r: 75,
+        stroke: 16,
+        scale: 100,
+        items: [
+            { label: "A", value: 0.9999 },
+            { label: "B", value: 0 },
+        ]
+    });
+    
+// Gridchart
+var chart_div = document.getElementById("gridPieChart");
+var gridPieChart = new DonutChart(chart_div, {
+        r: 75,
+        stroke: 16,
+        scale: 100,
+        items: [
+            { label: "A", value: 0.9999  },
+            { label: "B", value: 0 },
+        ]
+    });
+    
+
+
+
+
+
+
+
+// Home
+document.getElementById('addHome').addEventListener('click', function() {
+	chart.data.datasets.push(data01HomeUsage);
+	$("#addHome").hide();
+	$("#removeHome").show();
+	$("#homePie").prependTo("#additional-info-wrapper");
+	$("#homePie").show();
+	chart.update();
+});
+
+document.getElementById('removeHome').addEventListener('click', function() {			
+	chart.data.datasets = jQuery.grep(chart.data.datasets, function(value) {
+		return value != data01HomeUsage;
+      	});
+	$("#addHome").show();
+	$("#removeHome").hide();
+	$("#homePie").hide();
+	chart.update();
+});
+
+// Solar
+document.getElementById('addSolar').addEventListener('click', function() {
+	chart.data.datasets.push(data02SolarProduced);
+	$("#addSolar").hide();
+	$("#removeSolar").show();
+	$("#solarPie").prependTo("#additional-info-wrapper");
+	$("#solarPie").show();
+	chart.update();
+});
+
+document.getElementById('removeSolar').addEventListener('click', function() {			
+	chart.data.datasets = jQuery.grep(chart.data.datasets, function(value) {
+		return value != data02SolarProduced;
+      	});
+	$("#addSolar").show();
+	$("#removeSolar").hide();
+	$("#solarPie").hide();
+	chart.update();
+});
+
+// Battery
+document.getElementById('addBattery').addEventListener('click', function() {
+	chart.data.datasets.push(data03BatteryCharge);
+	chart.data.datasets.push(data04BatteryUsed);
+	$("#addBattery").hide();
+	$("#removeBattery").show();
+	$("#batteryPie").prependTo("#additional-info-wrapper");
+	$("#batteryPie").show();
+	chart.update();
+});
+
+document.getElementById('removeBattery').addEventListener('click', function() {			
+	chart.data.datasets = jQuery.grep(chart.data.datasets, function(value) {
+		return value != data03BatteryCharge;
+      	});
+    chart.data.datasets = jQuery.grep(chart.data.datasets, function(value) {
+		return value != data04BatteryUsed;
+      	});
+	$("#addBattery").show();
+	$("#removeBattery").hide();
+	$("#batteryPie").hide();
+	chart.update();
+});
+
+// Grid
+document.getElementById('addGrid').addEventListener('click', function() {
+	chart.data.datasets.push(data05ToGrid);
+	chart.data.datasets.push(data06FromGrid);
+	$("#addGrid").hide();
+	$("#removeGrid").show();
+	$("#gridPie").prependTo("#additional-info-wrapper");
+	$("#gridPie").show();
+	chart.update();
+});
+
+document.getElementById('removeGrid').addEventListener('click', function() {			
+	chart.data.datasets = jQuery.grep(chart.data.datasets, function(value) {
+		return value != data05ToGrid;
+      	});
+    chart.data.datasets = jQuery.grep(chart.data.datasets, function(value) {
+		return value != data06FromGrid;
+      	});
+	$("#addGrid").show();
+	$("#removeGrid").hide();
+	$("#gridPie").hide();
+	chart.update();
+});
+
+
+
+
+// Chart line width
+Chart.defaults.LineWithLine = Chart.defaults.line;
+
+Chart.controllers.LineWithLine = Chart.controllers.line.extend({
+   draw: function(ease) {
+      Chart.controllers.line.prototype.draw.call(this, ease);
+
+      if (this.chart.tooltip._active && this.chart.tooltip._active.length) {
+         var activePoint = this.chart.tooltip._active[0],
+             ctx = this.chart.ctx,
+             x = activePoint.tooltipPosition().x,
+             topY = this.chart.legend.bottom,
+             bottomY = this.chart.chartArea.bottom;
+
+         // draw line
+         ctx.save();
+         ctx.beginPath();
+         ctx.moveTo(x, topY);
+         ctx.lineTo(x, bottomY);
+         ctx.lineWidth = 2;
+         ctx.strokeStyle = '#fff';
+         ctx.stroke();
+         ctx.restore();
+      }
+   }
+});
+
+
+
+var customTooltips = function(tooltip) {
+	
+	// Tooltip Element
+	var tooltipEl = document.getElementById('chartjs-tooltip');
+			
+
+	if (!tooltipEl) {
+		tooltipEl = document.createElement('div');
+		tooltipEl.id = 'chartjs-tooltip';
+		tooltipEl.innerHTML = '<div class="tooltip-key-wrapper"></div>';
+		this._chart.canvas.parentNode.prepend(tooltipEl);
+		$("#chartjs-tooltip-key-placeholder").hide();
+	}
+
+	// Hide if no tooltip
+	if (tooltip.opacity === 0) {
+		tooltipEl.style.opacity = 0;
+		return;
+	}
+
+	function getBody(bodyItem) {
+		return bodyItem.lines;
+	}
+	
+	
+
+	// Set Text
+	if (tooltip.body) {
+		var titleLines = tooltip.title || [];
+		var bodyLines = tooltip.body.map(getBody);
+		var innerHtml = '';
+		innerHtml += '';
+		
+		var timeStamp = '<div class="tooltip-timestamp" >' + titleLines + '</div>';
+		
+		bodyLines.forEach(function(body, i) {
+			var colors = tooltip.labelColors[i];
+			var style = 'color:' + colors.backgroundColor;
+			var span = '<div class="chartjs-tooltip-key" style="' + style + '">' + body + 'kWh</div>';
+			var span2 = span.replace(": -", ": "); 
+			innerHtml += span2;
+		});
+		
+		innerHtml += timeStamp;
+		var tableRoot = tooltipEl.querySelector('div');
+		tableRoot.innerHTML = innerHtml;
+}
+			
+
+	tooltipEl.style.opacity = 1;
+};
+
+
+
+
+
+                                                                                       
+
+
+
+
+//data sets
+var data01HomeUsage = {
+	label: 'Home Usage',
+    fill: true,
+    backgroundColor: 'rgba(4, 241, 248, 1)',
+    hoverBackgroundColor: 'rgba(4, 241, 248, 1)',
+    borderWidth: 0,
+	data:[30.54, 25.15, 29.61, 27.96, 31.09, 24.47, 20.21, 28.70, 33.77, 32.65, 32.67, 24.82, 29.03, 25.92, 27.70, 22.94, 24.34, 35.22, 40.03, 26.94, 26.41, 24.60, 32.10, 14.34, 13.02, 10.92, 24.19, 27.02, 34.02, 35.61, 39.76]
+	};
+
+var data02SolarProduced = {
+	label: 'Solar Generated',
+    fill: true,
+    backgroundColor: 'rgba(255, 205, 0, 1)',
+    hoverBackgroundColor: 'rgba(255, 205, 0, 1)',
+    borderWidth: 0,
+    data:[32.93, 32.01, 30.86, 22.04, 9.49, 4.66, 7.99, 26.90, 27.67, 11.00, 11.00, 23.43, 27.22, 25.30, 21.47, 19.80, 25.30, 26.45, 23.17, 9.95, 30.98, 14.87, 15.16, 22.06, 30.22, 24.51, 28.15, 28.23, 30.90, 30.64, 3.62]
+	};
+
+var data03BatteryCharge = {
+	label: 'To Battery',
+	fill: true,
+	backgroundColor: 'rgba(50, 215, 75, 1)',
+	hoverBackgroundColor: 'rgba(50, 215, 75, 1)',
+    borderWidth: 0,
+    data: [-15.52, -16.24, -15.91, -12.42, -0.35, -0.13, -1.34, -11.23, -11.03, -2.08, -2.08, -10.63, -13.60, -11.96, -10.28, -11.56, -13.22, -14.09, -9.97, -1.95, -15.74, -5.78, -5.09, -14.85, -24.71, -19.08, -16.08, -14.69, -10.40, -10.58, -0.30]
+    }
+
+    
+var data04BatteryUsed = {
+	label: 'From Battery',
+	fill: true,
+    backgroundColor: 'rgba(50, 215, 75, 1)',
+    hoverBackgroundColor: 'rgba(50, 215, 75, 1)',
+    borderWidth: 0,
+    data: [9.93, 23.59, 29.21, 20.56, 9.21, 2.76, 2.72, 13.64, 15.87, 3.77, 5.42, 10.14, 19.7, 13.84, 12.23, 10.67, 16.93, 10.35, 10.38, 4.06, 6.04, 12.22, 9.97, 3.43, 0.12, 2.7, 16.81, 8.78, 18.58, 13.34, 9.71]
+    };
+
+var data05ToGrid = {
+	label: 'To Grid',
+	fill: true,
+    backgroundColor: 'rgba(255, 255, 255, 1)',
+    hoverBackgroundColor: 'rgba(255, 255, 255, 1)',
+	borderWidth: 0,
+	data:[-3.29, -4.08, -5.29, -0.13, -0.02, -0.01, -0.03, -0.14, -0.12, -0.04, -0.04, -0.16, -1.31, -0.1, -0.15, -0.14, -0.65, -2.13, -0.09, -0.06, -3.26, -0.19, -0.65, -2.62, -14.59, -13.67, -9.01, -2.43, -0.14, -0.21, -0.04]	
+	};
+
+var data06FromGrid = {
+	label: 'From Grid',
+	fill: true,
+    backgroundColor: 'rgba(255, 255, 255, 1)',
+    hoverBackgroundColor: 'rgba(255, 255, 255, 1)',
+    borderWidth: 0,
+    data: [2.84, 1.56, 0.40, 7.40, 21.88, 20.17, 12.45, 5.91, 4.62, 22.05, 22.07, 4.37, 2.53, 4.24, 7.10, 6.33, 1.09, 8.20, 18.06, 17.51, 4.26, 6.44, 18.34, 3.19, 0.51, 0.13, 0.34, 3.84, 0.30, 6.34, 28.43]
+    };
+  
+  
+
+
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var myLegendContainer = document.getElementById("myChartLegend");
+  var chart = new Chart(ctx, {
+  
+  
+  // The type of chart we want to create
+  type: 'bar',
+    
+
+    // The data for our dataset
+    data: {
+	labels: ['Tue 14 Apr 2020', 'Wed 15 Apr 2020', 'Thu 16 Apr 2020', 'Fri 17 Apr 2020', 'Sat 18 Apr 2020', 'Sun 19 Apr 2020', 'Mon 20 Apr 2020', 'Tue 21 Apr 2020', 'Wed 22 Apr 2020', 'Thu 23 Apr 2020', 'Fri 24 Apr 2020', 'Sat 25 Apr 2020', 'Sun 26 Apr 2020', 'Mon 27 Apr 2020', 'Tue 28 Apr 2020', 'Wed 29 Apr 2020', 'Thu 30 Apr 2020', 'Fri 01 May 2020', 'Sat 02 May 2020', 'Sun 03 May 2020', 'Mon 04 May 2020', 'Tue 05 May 2020', 'Wed 06 May 2020', 'Thu 07 May 2020', 'Fri 08 May 2020', 'Sat 09 May 2020', 'Sun 10 May 2020', 'Mon 11 May 2020', 'Tue 12 May 2020', 'Wed 13 May 2020'],
+	datasets: [ 
+        data01HomeUsage,
+        // data02SolarProduced,
+//        data03BatteryCharge,
+  //      data04BatteryUsed,
+    //    data05ToGrid,
+      //  data06FromGrid
+        ]
+        },
+
+    // Configuration options go here
+options: {
+	cornerRadius: 20,
+	legend: {
+
+		display: false
+		},
+	scales: {
+		xAxes: [{
+			maxBarThickness: 4,
+			ticks: {
+				min: 1, 
+				display: false //this will remove only the label
+				}
+			}],
+		yAxes: [{
+			ticks: {
+				beginAtZero: true,
+				stepSize: 10,
+				display: true //this will remove only the label
+				},
+			gridLines: {
+
+				display: true ,
+				color: "#666",
+				drawBorder: false,
+			}
+			}]
+        },
+	elements: {
+		point: {
+			radius: 0,
+			hitRadius: 10, 
+			hoverRadius: 0,
+             }
+		},
+	tooltips: {
+		position: 'nearest',
+		mode: 'index',
+		intersect: false,
+		custom: customTooltips,
+		enabled: false,
+		},
+		hover: {
+			mode: 'nearest',
+			intersect: false
+		},
+	}
+});
+
+
+
+
+
+
+
+
+	
+
+	  </script>
+	  
+  
+  <script src="js/vendor/modernizr-3.8.0.min.js"></script>
+
+
+
+</body>
+
+</html>
