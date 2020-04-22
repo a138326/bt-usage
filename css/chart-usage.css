@@ -242,7 +242,7 @@ h3.home,
 		  display: flex;
 		  flex-wrap: wrap;
 		  background-color: #2B2C31;
-		  padding: 8px 16px;
+		  padding: 8px 12px;
 		  border-radius: 16px;
 		  height: 74px;
 		  position: relative;
@@ -251,7 +251,7 @@ h3.home,
 }
 .chartjs-tooltip-key {
 		  width: 100%;
-		  font-size: 15px;
+		  font-size: 14px;
 		  padding: 4px 0px;
 	  }
 .tooltip-timestamp {
@@ -265,7 +265,7 @@ h3.home,
  {
 	width: 50%;
 	text-align: left;
-	font-size: 13px;
+	font-size: 12px;
 	padding: 2px 0px;
 }
 .chartjs-tooltip-key:first-child:nth-last-child(n + 3) ~ .tooltip-timestamp {
