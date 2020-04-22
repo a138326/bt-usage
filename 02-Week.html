@@ -522,17 +522,20 @@ var customTooltips = function(tooltip) {
 	if (tooltip.body) {
 		var titleLines = tooltip.title || [];
 		var bodyLines = tooltip.body.map(getBody);
-		var innerHtml = '<div>';
-		innerHtml += '</div>';
-
+		var innerHtml = '';
+		innerHtml += '';
+		
+		var timeStamp = '<div class="tooltip-timestamp" >' + titleLines + '</div>';
+		
 		bodyLines.forEach(function(body, i) {
 			var colors = tooltip.labelColors[i];
 			var style = 'color:' + colors.backgroundColor;
-			var span = '<span class="chartjs-tooltip-key" style="' + style + '">' + body + 'kWh</span>';
+			var span = '<div class="chartjs-tooltip-key" style="' + style + '">' + body + 'kWh</div>';
 			var span2 = span.replace(": -", ": "); 
 			innerHtml += span2 ;
 		});
 		
+		innerHtml += timeStamp;
 		var tableRoot = tooltipEl.querySelector('div');
 		tableRoot.innerHTML = innerHtml;
 }
