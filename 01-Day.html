@@ -382,7 +382,7 @@ document.getElementById('addHome').addEventListener('click', function() {
 	$("#addHome").hide();
 	$("#removeHome").show();
 	$("#homePie").prependTo("#additional-info-wrapper");
-	$("#homePie").show();
+	$("#homePie").show("slow");
 	chart.update();
 });
 
@@ -392,7 +392,7 @@ document.getElementById('removeHome').addEventListener('click', function() {
       	});
 	$("#addHome").show();
 	$("#removeHome").hide();
-	$("#homePie").hide();
+	$("#homePie").hide("slow");
 	chart.update();
 });
 
@@ -402,7 +402,7 @@ document.getElementById('addSolar').addEventListener('click', function() {
 	$("#addSolar").hide();
 	$("#removeSolar").show();
 	$("#solarPie").prependTo("#additional-info-wrapper");
-	$("#solarPie").show();
+	$("#solarPie").show("slow");
 	chart.update();
 });
 
@@ -412,7 +412,7 @@ document.getElementById('removeSolar').addEventListener('click', function() {
       	});
 	$("#addSolar").show();
 	$("#removeSolar").hide();
-	$("#solarPie").hide();
+	$("#solarPie").hide("slow");
 	chart.update();
 });
 
@@ -423,7 +423,7 @@ document.getElementById('addBattery').addEventListener('click', function() {
 	$("#addBattery").hide();
 	$("#removeBattery").show();
 	$("#batteryPie").prependTo("#additional-info-wrapper");
-	$("#batteryPie").show();
+	$("#batteryPie").show("slow");
 	chart.update();
 });
 
@@ -436,7 +436,7 @@ document.getElementById('removeBattery').addEventListener('click', function() {
       	});
 	$("#addBattery").show();
 	$("#removeBattery").hide();
-	$("#batteryPie").hide();
+	$("#batteryPie").hide("slow");
 	chart.update();
 });
 
@@ -447,7 +447,7 @@ document.getElementById('addGrid').addEventListener('click', function() {
 	$("#addGrid").hide();
 	$("#removeGrid").show();
 	$("#gridPie").prependTo("#additional-info-wrapper");
-	$("#gridPie").show();
+	$("#gridPie").show("slow");
 	chart.update();
 });
 
@@ -460,7 +460,7 @@ document.getElementById('removeGrid').addEventListener('click', function() {
       	});
 	$("#addGrid").show();
 	$("#removeGrid").hide();
-	$("#gridPie").hide();
+	$("#gridPie").hide("slow");
 	chart.update();
 });
 
